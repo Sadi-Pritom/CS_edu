@@ -84,7 +84,7 @@ class StudentController extends Controller
         $st->username=$req->username;
         
        
-        $st->save(); //update
+        $st->save(); //update////////////crud operation
         return redirect()->route('students.list');
     }
 
