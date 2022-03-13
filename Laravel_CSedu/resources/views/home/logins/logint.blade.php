@@ -4,7 +4,7 @@ $name="Sadi";
 @endphp
 <html>
 
-    <form action="{{route('login')}}" method="post">
+    <form action="{{route('logint')}}" method="post">
     {{@csrf_field()}}
         <input type="text" value="<?php echo $name;?>" name="uname" placeholder="Username"><br>
         <input type="password" name="pass"placeholder="Password"><br>

@@ -34,21 +34,7 @@ class StudentController extends Controller
          */
         return view('student.list')->with('students',$students);
     }
-    public function create()
-    {
-        return view('student.create');
-    }
-    public function get()
-    {
-        $name = "Tanvir Ahmed";
-        $id = "123";
-        $courses = ["pl1","pl2","DS","Algorithm","oop1","oop2","oop3","atp1","atp2","atp3"];
-
-        return view('student.get')
-        ->with('name',$name)
-        ->with('id',$id)
-        ->with('courses',$courses);
-    }
+    
     public function details(Request $req)
     {
         return view('student.get')
@@ -87,6 +73,7 @@ class StudentController extends Controller
         $st->save(); //update////////////crud operation
         return redirect()->route('students.list');
     }
+    
 
 
 
