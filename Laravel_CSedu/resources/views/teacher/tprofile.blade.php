@@ -2,7 +2,7 @@
 @section('gett')
 
 
-<h1>get</h1>
+<h3>Profile</h3>
 
 <?php
 ///echo session()->get('username');

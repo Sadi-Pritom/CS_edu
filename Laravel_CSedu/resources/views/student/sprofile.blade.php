@@ -4,13 +4,13 @@
 @section('gett')
 
 
-<h1>Profile</h1>
+<h1 style="color:Tomato" >Profile</h1>
 
 <?php
 ///echo session()->get('username');
 
 ?>
-<table border="1">
+{{-- <table border="1">
            
 
                  <tr>
@@ -30,28 +30,58 @@
                              <td><a class="btn btn-primary" href="{{route('students.edit',['id'=>encrypt($st->id)])}}">Edit</a></td>
                         </tr>
                       
-    </table>  
-    {{-- @foreach ($st->enroll as $se)
-        <h1>{{$se->course_id}}</h1>
-        @foreach ($se->course as $sc )
-            <h1>{{$sc->name}} </h1>
-        @endforeach
-        {{$se->course->name}}
-    @endforeach
-    <h1> {{$st->course}}</h1> --}}
-
-    <table class="table">
+    </table>   --}}
+  <table class="table">
   <thead>
     <tr>
       <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody> 
+  
+
+    <tr>
+      <th scope="row">{{$st->id}}</th>
+      <td>{{$st->name}}</td>
+      <td>{{$st->username}}</td>
+      <td>{{$st->email}}</td>
+       <td><a class="btn btn-primary" href="{{route('students.edit',['id'=>encrypt($st->id)])}}">Edit</a></td>
+
+      
+    
+    </tr>
+
+    
+  </tbody>
+  </table>
+
+
+
+
+
+
+<h3 style="color:Tomato">Your Courses</h3>
+
+
+
+
+
+   
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Course ID</th>
       <th scope="col">Name</th>
       <th scope="col">Teacher</th>
       <th scope="col">Price</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody> 
   
-@foreach($st->enroll as $se)
+ @foreach($st->enroll as $se)
 <tr>
       <th scope="row">{{$se->course->id}}</th>
       <td>{{$se->course->name}}</td>
@@ -63,6 +93,6 @@
 @endforeach
     
   </tbody>
-    
+    </table>
 
 @endsection('gett')

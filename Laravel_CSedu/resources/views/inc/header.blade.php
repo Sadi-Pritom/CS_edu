@@ -17,9 +17,10 @@
               {{-- teacher --}}
                @if(Session::has('username1'))<a href="{{route('profilet')}}">Profile</a>@endif
                {{-- @if(!Session::has('username1'))<a href="{{route('login')}}">login as Teacher</a>@endif --}}
-                @if(Session::has('username1'))<a href="{{route('logout')}}">logout</a>@endif
-                @if(Session::has('username1'))<a href="{{route('courses')}}">courses</a>@endif
+                @if(Session::has('username1'))<a href="{{route('coursest')}}">courses</a>@endif
                 @if(Session::has('username1'))<a href="{{route('addCourse')}}">Add course</a>@endif
+                @if(Session::has('username1'))<a href="{{route('logout')}}">logout</a>@endif
+
                
                {{-- admin --}}
                {{-- @if(!Session::has('username2'))<a href="{{route('login')}}">login as Admin</a>@endif --}}
@@ -30,6 +31,7 @@
                 @if(Session::has('username2'))<a href="{{route('tlist')}}">Teacher List</a>@endif
                 @if(Session::has('username2'))<a href="{{route('clist')}}">Course List</a>@endif
                 @if(Session::has('username2'))<a href="{{route('elist')}}">Enroll List</a>@endif
+                @if(Session::has('username2'))<a href="{{route('areview')}}">Reviews Of Students</a>@endif
 
                 @if(Session::has('username2'))<a href="{{route('logout')}}">logout</a>@endif
 

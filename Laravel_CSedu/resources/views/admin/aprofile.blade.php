@@ -28,8 +28,8 @@
                             <td>{{$a->username2}}</td>
                             <td>{{$a->email}}</td>
                              
-                             {{-- <td><a class="btn btn-primary" href="{{route('teachers.edit',['id'=>encrypt($t->id)])}}">Edit</a></td>
-                        </tr> --}}
+                             <td><a class="btn btn-primary" href="{{route('editadmin',['id'=>encrypt($a->id)])}}">Edit</a></td>
+                        </tr>
                       
     </table>  
     

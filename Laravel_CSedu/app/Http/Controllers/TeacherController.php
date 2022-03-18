@@ -9,6 +9,15 @@ use App\Models\Course;
 class TeacherController extends Controller
 {
     //
+    public function getAllcoursest(Request $req)
+    {
+        $courses=Course::all();
+       return view('teacher.course')->with('courses',$courses);
+       // $st=Student::where('username',$username)->first();
+       
+        
+        
+    }
     public function addCourse(Request $req)
     {
         $username=session()->get('username1');

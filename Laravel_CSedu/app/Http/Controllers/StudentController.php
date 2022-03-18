@@ -71,7 +71,7 @@ class StudentController extends Controller
         
        
         $st->save(); //update////////////crud operation
-        return redirect()->route('students.list');
+        return redirect()->route('profile');
     }
     
 

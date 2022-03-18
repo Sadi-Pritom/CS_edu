@@ -26,14 +26,33 @@ class PagesController extends Controller
     }
     public function loginSubmit(Request $req)
     {
-        $st=Student::where('username',$req->uname)->where('password',$req->pass)->first();
+
+        $this->validate($req,
+
+          [
+            
+            'username'=>'required|min:5|max:20',
+            'password'=>'required|min:3',
+           
+            
+
+        ],
+
+        [
+            'username.required' => 'Please provide username',
+            'username.max'=>'Username must not exceed 20 alphabets',
+        ]
+         );
+       
+
+        $st=Student::where('username',$req->username)->where('password',$req->password)->first();
        // if ($st) return "log in success";
        // else return "login failed";
        if ($st){
            session()->put('username',$st->username);
            session()->put('id',$st->id);
            session()->put('msg', 'Hello  '. $st->name );
-           return redirect()->route('student.list');
+           return redirect()->route('profile');
 
            
        
@@ -53,14 +72,32 @@ class PagesController extends Controller
     }
     public function loginSubmitt(Request $req)
     {
-        $t=Teacher::where('username1',$req->uname)->where('password',$req->pass)->first();
+        $this->validate($req,
+
+        [
+          
+          'username1'=>'required|min:5|max:20',
+          'password'=>'required|min:3',
+         
+          
+
+      ],
+
+      [
+          'username1.required' => 'Please provide username',
+          'username1.max'=>'Username must not exceed 20 alphabets',
+          
+      ]
+       );
+
+        $t=Teacher::where('username1',$req->username1)->where('password',$req->password)->first();
        // if ($st) return "log in success";
        // else return "login failed";
        if ($t){
            session()->put('username1',$t->username1);
            session()->put('id',$t->id);
            session()->put('msg', 'Hello  '. $t->name );
-           return redirect()->route('courses');
+           return redirect()->route('profilet');
 
        }
     }
@@ -70,14 +107,32 @@ class PagesController extends Controller
     }
     public function loginSubmita(Request $req)
     {
-        $a=Admin::where('username2',$req->uname)->where('password',$req->pass)->first();
+        $this->validate($req,
+
+        [
+          
+          'username2'=>'required|min:5|max:20',
+          'password'=>'required|min:3',
+         
+          
+
+      ],
+
+      [
+          'username2.required' => 'Please provide username',
+          'username2.max'=>'Username must not exceed 20 alphabets',
+          
+      ]
+       );
+
+        $a=Admin::where('username2',$req->username2)->where('password',$req->password)->first();
        // if ($st) return "log in success";
        // else return "login failed";
        if ($a){
            session()->put('username2',$a->username2);
            session()->put('id',$a->id);
            session()->put('msg', 'Hello,  '. $a->name );
-           return redirect()->route('courses');
+           return redirect()->route('aprofile');
 
        }
     }
@@ -128,8 +183,11 @@ class PagesController extends Controller
 
     public function getAllcourses(Request $req)
     {
+        $username=session()->get('username');
+        $st=Student::where('username',$username)->first();
         $courses=Course::all();
-       return view('student.course')->with('courses',$courses);
+      return view('student.course')->with('courses',$courses)->with('st',$st);
+    
        // $st=Student::where('username',$username)->first();
        
         
@@ -195,7 +253,7 @@ class PagesController extends Controller
             'name'=>'required|regex:/^[A-Z a-z]+$/',
             'username'=>'required|min:5|max:20',
             'email'=>'required|email',//|exists:students, email'
-            'password'=>'required|min:8',
+            'password'=>'required|min:3',
             'conf_password'=>'required|same:password'
             
 
@@ -214,7 +272,8 @@ class PagesController extends Controller
           $st->email=$req->email;
           $st->password=$req->password;
           $st->save(); 
-        return "<h1>the form is submitted with $req->name</h1>";
+         
+         return redirect()->route('login');
     }
 
     public function csedu(){
