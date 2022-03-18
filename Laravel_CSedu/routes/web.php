@@ -116,7 +116,11 @@ Route::get('/students/list',[PagesController::class,'list'])->name('students.lis
     Route::get('/editadmin/{id}',[AdminController::class,'editadmin'])->name('editadmin'); 
     Route::post('/updateaa',[AdminController::class,'updateaa'])->name('updateaa'); 
     Route::post('/searchRecord',[AdminController::class,'searchRecord'])->name('searchRecord');  
-    Route::get('/pdf',[AdminController::class,'pdf'])->name('pdf');  
+    Route::get('/pdf',[AdminController::class,'pdf'])->name('pdf'); 
+    Route::get('/aadteacher',[AdminController::class,'aadteacher'])->name('aadteacher'); 
+    Route::post('/tregister',[AdminController::class,'tregister'])->name('tregister');  
+
+ 
 
  
 

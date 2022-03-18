@@ -158,6 +158,45 @@ class AdminController extends Controller
        $dwn=PDF::loadView('admin.cdlist',['c'=>$c]);
        return $dwn->download('cdlist.pdf');
     }
+    public function aadteacher()
+    {
+       
+       return view('admin.aadteacher');
+    }
+    public function tregister(Request $req)
+    {
+        
+
+        
+          $this->validate($req,
+
+          [
+            'name'=>'required|regex:/^[A-Z a-z]+$/',
+            'username'=>'required|min:5|max:20',
+            'skill'=>'required|max:20',//|exists:students, email'
+            'password'=>'required|min:3',
+            'conf_password'=>'required|same:password'
+            
+
+        ],
+
+        [
+            'username.required' => 'Please provide username',
+            'username.max'=>'Username must not exceed 20 alphabets',
+            'conf_password.same'=>'Password and confirm password must match'
+        ]
+         );
+
+         $t= new Teacher();
+          $t->name=$req->name;
+          $t->username1=$req->username;
+          $t->skill=$req->skill;
+          $t->password=$req->password;
+          $t->save(); 
+         
+         return redirect()->route('tlist');
+    }
+
 
     
 }

@@ -1,8 +1,8 @@
 @extends('layouts.loggedin')
 @section('listt')
-<h1>list</h1>
-<span class="text-success">{{Session::get('msg')}}</span>
-<table border="1">
+
+
+{{-- <table border="1">
             
                 <tr>
                         <th>Name</th>
@@ -18,12 +18,50 @@
                             <td>{{$s->email}}</td>
                             <td>{{$s->username}}</td>
                              <td>{{$s->created_at}}</td>
-                             {{-- <td><a class="btn btn-primary" href="{{route('students.edit',['id'=>encrypt($s->id)])}}">Edit</a></td> --}}
                              <td> <button>
                             <a href ="{{route('sdelete',$s->id)}}" class="btn btn-success" type="submit">Delete</a>     
                         </button> </td>
                         </tr>
                     @endforeach  
     
-</table>    
+</table>     --}}
+<br>
+<h3 style="color:Tomato" align="center">Students List </h3><br>
+ <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Student Name</th>
+      <th scope="col">Student ID</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Registration date</th>
+      
+    </tr>
+  </thead>
+  <tbody> 
+ @foreach($students as $s)
+       <tr>
+                        <th scope="row">{{$s->name}}</th>
+                        <td>{{$s->id}}</td>
+                        <td>{{$s->username}}</td>
+                        <td>{{$s->email}}</td>
+                        <td>{{$s->created_at}}</td>
+                         <td> 
+                         <button>
+                            <a href ="{{route('sdelete',$s->id)}}" class="btn btn-danger" type="submit">Delete</a>     
+                        </button>
+                         </td>
+                            
+                             
+                        
+       </tr>
+@endforeach 
+   
+
+
+    
+  </tbody>
+    </table>
+
+
 @endsection('listt')

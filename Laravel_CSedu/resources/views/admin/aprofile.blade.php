@@ -9,7 +9,7 @@
 ///echo session()->get('username');
 
 ?>
-<table border="1">
+<table  border="1">
            
 
                  <tr>

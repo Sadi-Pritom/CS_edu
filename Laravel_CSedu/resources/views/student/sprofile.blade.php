@@ -62,8 +62,8 @@
 
 
 
-
-<h3 style="color:Tomato">Your Courses</h3>
+<br><br>
+<h3 style="color:Tomato" align="center">Your Courses</h3>
 
 
 
