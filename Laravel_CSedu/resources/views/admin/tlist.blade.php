@@ -33,6 +33,15 @@
 
 <br>
 <h3 style="color:Tomato" align="center">Teachers List </h3><br>
+<h4 style="color:Tomato" align="center">To delete any teacher,at first you have to delete enrolls of that teacher </h4><br>
+
+
+<form action="{{route('searcht')}}" method="post">
+      {{csrf_field()}}
+        <input type="text" name="name" placeholder="Teacher Name"><br>
+        <input type="submit" value="search" ><br>
+
+   </form> 
  <table class="table">
   <thead>
     <tr>

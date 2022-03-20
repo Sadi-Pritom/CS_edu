@@ -1,9 +1,9 @@
 <span class="text-success">{{Session::get('msg')}}</span>
 @extends('layouts.loggedin')
 @section('gett')
+<br>
 
-
-<h3>Admin's Profile</h3>
+<h3 style="color:Tomato">Admin's Profile</h3>
 
 <?php
 ///echo session()->get('username');

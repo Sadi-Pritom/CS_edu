@@ -27,6 +27,17 @@
 </table>     --}}
 <br>
 <h3 style="color:Tomato" align="center">Students List </h3><br>
+<h4 style="color:Tomato" align="center">To delete any student,at first you have to delete enrolls of that student </h4><br>
+
+
+<form action="{{route('searchs')}}" method="post">
+      {{csrf_field()}}
+        <input type="text" name="name" placeholder="Student Name"><br>
+        <input type="submit" value="search" ><br>
+
+   </form> 
+
+
  <table class="table">
   <thead>
     <tr>

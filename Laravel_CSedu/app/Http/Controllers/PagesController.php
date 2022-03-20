@@ -9,6 +9,7 @@ use App\Models\Course;
 use App\Models\Enroll;
 use App\Models\Teacher;
 use App\Models\Admin;
+use PDF;
 
 
 class PagesController extends Controller
@@ -198,6 +199,10 @@ class PagesController extends Controller
     {
         $username=session()->get('username');
         $st=Student::where('username',$username)->first();
+
+    //     $c=Course::get();
+    //    $dwn=PDF::loadView('admin.cdlist',['c'=>$c]);
+    //    return $dwn->download('cdlist.pdf');
        
         $e=new Enroll();
         $e->student_id=$st->id;
@@ -218,6 +223,10 @@ class PagesController extends Controller
     public function register()
     {
         return view('home.logins.registration');
+    }
+    public function info()
+    {
+        return view('student.info');
     }
     public function list()
     {

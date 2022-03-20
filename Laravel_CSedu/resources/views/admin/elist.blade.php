@@ -2,9 +2,15 @@
 @extends('layouts.loggedin')
 @section('listt')
 
+<br><br>
+<h3 style="color:Tomato" align="center"> Enrolls</h3>
 <br>
-<h3 style="color:Tomato" align="center">Enrolls</h3>
+<form action="{{route('searche')}}" method="post">
+      {{csrf_field()}}
+        <input type="text" name="name" placeholder="Student ID"><br>
+        <input type="submit" value="search" ><br>
 
+   </form> 
 <table class="table">
   <thead>
     <tr>

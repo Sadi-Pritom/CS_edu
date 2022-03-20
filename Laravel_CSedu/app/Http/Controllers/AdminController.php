@@ -36,6 +36,25 @@ class AdminController extends Controller
        
         $st= Student::where('id',$req->id)->first();
          $st->id=$req->id;
+        // $ee= Enroll::where('id',$req->id)->first();
+       
+        // foreach($ee->student_id as $s)
+        // {
+        //     if($s==null)
+        //     {
+        //         $st->delete();
+        //           break;
+        //     }
+        //     else if($s==$st->id)
+        //     {
+
+        //     }
+        //     else
+        //     {
+        //         $st->delete();
+        //     }
+        // }
+       
        
         $st->delete();
         return redirect()->back();   
@@ -150,6 +169,48 @@ class AdminController extends Controller
         
        
         return view('admin.clist',compact('cc'));
+    }
+    public function searchs(Request $req)
+    {
+        
+       if($req->isMethod('post'))
+       {
+
+       
+        $name=$req->name;
+        $students= Student::where('name','LIKE','%'. $name .'%')->paginate(5);
+       }
+        
+       
+        return view('admin.slist',compact('students'));
+    }
+    public function searcht(Request $req)
+    {
+        
+       if($req->isMethod('post'))
+       {
+
+       
+        $name=$req->name;
+        $t= Teacher::where('name','LIKE','%'. $name .'%')->paginate(5);
+       }
+        
+       
+        return view('admin.tlist',compact('t'));
+    }
+    public function searche(Request $req)
+    {
+        
+       if($req->isMethod('post'))
+       {
+
+      
+        $id=$req->student_id;
+        $ee= Enroll::where('student_id','LIKE','%'. $id .'%')->paginate(5);
+       }
+        
+       
+        return view('admin.elist',compact('ee'));
     }
 
     public function pdf()

@@ -1,10 +1,11 @@
-<span class="text-success">{{Session::get('msg')}}</span>
 
 @extends('layouts.loggedin')
 @section('gett')
 
 
 <h1 style="color:Tomato" >Profile</h1>
+<span class="text-success">{{Session::get('msg')}}</span>
+
 
 <?php
 ///echo session()->get('username');

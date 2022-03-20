@@ -44,41 +44,21 @@ Route::get('/', function () {
 
 
 
-      
+    /////////////student  
 
- Route::get('/login',[PagesController::class,'login'])->name('login'); 
- Route::post('/login',[PagesController::class,'loginSubmit'])->name('login');
+    Route::get('/login',[PagesController::class,'login'])->name('login'); 
+    Route::post('/login',[PagesController::class,'loginSubmit'])->name('login');
 
- Route::get('/logint',[PagesController::class,'logint'])->name('logint'); 
- Route::post('/logint',[PagesController::class,'loginSubmitt'])->name('logint');
+    Route::get('/logint',[PagesController::class,'logint'])->name('logint'); 
+    Route::post('/logint',[PagesController::class,'loginSubmitt'])->name('logint');
 
- Route::get('/logas',[PagesController::class,'logas'])->name('logas');
-
- 
-
-
-
- Route::get('/register',[PagesController::class,'register']);   
- 
- 
-        
-         
-        Route::get('/studentList',[StudentController::class,'list'])->name('student.list')->middleware('authorized'); 
-        
-
-
-Route::get('/student/details/{id}/{name}',[StudentController::class,'details'])->name('student.details');         
-         
-
-                Route::post('/register',[PagesController::class,'registersubmit'])->name('register.submit');  
-
-
-
-Route::get('/students/list',[PagesController::class,'list'])->name('students.list');      //database access  --eta te kaj nai emni create kora hoyse      
-                   
-                   
-
-                Route::get('/students/edit/{id}',[StudentController::class,'edit'])->name('students.edit')->middleware('authorized');
+    Route::get('/logas',[PagesController::class,'logas'])->name('logas');
+    Route::get('/register',[PagesController::class,'register']);   
+    Route::get('/studentList',[StudentController::class,'list'])->name('student.list')->middleware('authorized'); 
+    Route::get('/student/details/{id}/{name}',[StudentController::class,'details'])->name('student.details');         
+    Route::post('/register',[PagesController::class,'registersubmit'])->name('register.submit');  
+    Route::get('/students/list',[PagesController::class,'list'])->name('students.list');      //database access  --eta te kaj nai emni create kora hoyse      
+    Route::get('/students/edit/{id}',[StudentController::class,'edit'])->name('students.edit')->middleware('authorized');
         
                 
     Route::post('/update',[StudentController::class,'updateSubmit'])->name('update.submit')->middleware('authorized');   
@@ -90,6 +70,8 @@ Route::get('/students/list',[PagesController::class,'list'])->name('students.lis
     Route::get('/addReview',[PagesController::class,'addReview'])->name('addReview')->middleware('authorized');
     Route::post('/addReview',[PagesController::class,'postReview'])->name('postReview')->middleware('authorized');
     Route::get('/courses',[PagesController::class,'getAllcourses'])->name('courses')->middleware('authorized');
+    Route::get('/info',[PagesController::class,'info'])->name('info')->middleware('authorized');
+
     Route::get('/enroll/{id}',[PagesController::class,'enroll'])->name('enroll')->middleware('authorized');
 
 //////////////teacher
@@ -115,7 +97,13 @@ Route::get('/students/list',[PagesController::class,'list'])->name('students.lis
     Route::get('/areview',[AdminController::class,'areview'])->name('areview')->middleware('authorized2'); 
     Route::get('/editadmin/{id}',[AdminController::class,'editadmin'])->name('editadmin'); 
     Route::post('/updateaa',[AdminController::class,'updateaa'])->name('updateaa'); 
-    Route::post('/searchRecord',[AdminController::class,'searchRecord'])->name('searchRecord');  
+    Route::post('/searchRecord',[AdminController::class,'searchRecord'])->name('searchRecord'); 
+    Route::post('/searchs',[AdminController::class,'searchs'])->name('searchs');  
+    Route::post('/searcht',[AdminController::class,'searcht'])->name('searcht'); 
+    Route::post('/searche',[AdminController::class,'searche'])->name('searche');  
+ 
+
+ 
     Route::get('/pdf',[AdminController::class,'pdf'])->name('pdf'); 
     Route::get('/aadteacher',[AdminController::class,'aadteacher'])->name('aadteacher'); 
     Route::post('/tregister',[AdminController::class,'tregister'])->name('tregister');  

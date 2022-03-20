@@ -2,7 +2,7 @@
 @section('listt')
 
 <h1>Courses</h1>
-<span class="text-success">{{Session::get('msg')}}</span>
+{{-- <span class="text-success">{{Session::get('msg')}}</span> --}}
 <table class="table">
   <thead>
     <tr>
@@ -65,7 +65,9 @@
                 <a  class="btn btn-success" type="submit">Enrolled</a> 
 
                 @else
+                {{-- <a href ="{{route('enroll',$c->id)}}" class="btn btn-danger" type="submit">Enroll</a> --}}
                 <a href ="{{route('enroll',$c->id)}}" class="btn btn-danger" type="submit">Enroll</a>
+
                     
                 @endif
 
