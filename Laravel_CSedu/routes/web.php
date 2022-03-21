@@ -78,8 +78,8 @@ Route::get('/', function () {
     Route::get('/addCourse',[TeacherController::class,'addCourse'])->name('addCourse')->middleware('authorized1');
     Route::post('/addCourse',[TeacherController::class,'postCourse'])->name('postCourse');
     Route::get('/profilet',[TeacherController::class,'profilet'])->name('profilet')->middleware('authorized1'); 
-    Route::get('/teachers/edit/{id}',[TeacherController::class,'editt'])->name('teachers.edit'); 
-   Route::post('/updatee',[TeacherController::class,'updateSubmitt'])->name('update.submitt');  
+    Route::get('/teachers/edit/{id}',[TeacherController::class,'editt'])->name('teachers.edit')->middleware('authorized1'); 
+   Route::post('/updatee',[TeacherController::class,'updateSubmitt'])->name('update.submitt')->middleware('authorized1');  
    Route::get('/coursest',[TeacherController::class,'getAllcoursest'])->name('coursest')->middleware('authorized1');
 
    ////////////////admin

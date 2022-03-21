@@ -19,7 +19,7 @@
 
               
               {{-- teacher --}}
-               @if(Session::has('username1'))<a href="{{route('profilet')}}">Profile</a>@endif
+               @if(Session::has('username1'))<a class="btn btn-success" href="{{route('profilet')}}">Profile</a>@endif
                {{-- @if(!Session::has('username1'))<a href="{{route('login')}}">login as Teacher</a>@endif --}}
                 @if(Session::has('username1'))<a class="btn btn-success" href="{{route('coursest')}}">courses</a>@endif
                 @if(Session::has('username1'))<a class="btn btn-success" href="{{route('addCourse')}}">Add course</a>@endif

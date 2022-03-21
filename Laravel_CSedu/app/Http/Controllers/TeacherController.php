@@ -90,6 +90,6 @@ class TeacherController extends Controller
         
        
         $t->save(); //update////////////crud operation
-        return redirect()->route('courses');
+        return redirect()->route('profilet');
     }
 }
